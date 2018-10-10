@@ -1,20 +1,30 @@
 import React from 'react';
+import styled from 'styled-components';
+
+const TableHeader = styled.tr`
+    text-transform: uppercase;
+    font-weight: bold;
+`;
+const HeaderItem = styled.th`
+`;
 
 const CryptoTableHeader = () => (
-    <React.Fragment>
-        <div>
-            Cryptocurrency
-        </div>
-        <div>
-            Price
-        </div>
-        <div>
-            Market Cap
-        </div>
-        <div>
-            24h Change
-        </div>
-    </React.Fragment>
+    <thead>
+        <TableHeader>
+            <HeaderItem>
+                Cryptocurrency
+            </HeaderItem>
+            <HeaderItem>
+                Price
+            </HeaderItem>
+            <HeaderItem>
+                Market Cap
+            </HeaderItem>
+            <HeaderItem>
+                24h Change
+            </HeaderItem>
+        </TableHeader>
+    </thead>
 );
 
 export default CryptoTableHeader;

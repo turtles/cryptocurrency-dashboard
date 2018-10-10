@@ -1,30 +1,40 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import styled from 'styled-components';
 
 import { fetchCryptocurrencies } from '../../redux/actions/cryptocurrenciesActions';
 
 import CryptoTableHeader from './CryptoTableHeader';
-import CryptoTableRow from './CryptoTableRow';
+import CryptoTableBody from './CryptoTableRow';
+
+const mapStateToProps = state => ({
+    data: state.data
+})
 
 const mapDispatchToProps = dispatch => {
 	return {
-        fetchCryptocurrencies:
+        onFetchCryptocurrencies:
             ()=>dispatch(fetchCryptocurrencies())
     }
 }
 
-let CryptoTable = () => (
-    <div>
-        <button onClick={()=>this.props.fetchCryptocurrencies()}>
-            fetch
-        </button>
-        <CryptoTableHeader />
-        <CryptoTableRow />
-    </div>
-);
+let CryptoTable = ({data, onFetchCryptocurrencies}) => {
+    return (
+        <React.Fragment>
+            <button onClick={()=>onFetchCryptocurrencies()}>
+                fetch
+            </button>
+            <br/>
+            <table>
+                <CryptoTableHeader />
+                <CryptoTableBody data={data} />
+            </table>
+        </React.Fragment>
+    );
+}
 
 CryptoTable = connect(
-    null, mapDispatchToProps
+    mapStateToProps, mapDispatchToProps
 )(CryptoTable);
 
 export default CryptoTable;

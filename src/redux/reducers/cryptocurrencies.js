@@ -12,8 +12,13 @@ const cryptocurrencies = (state = defaultState, action) => {
             return { ...state, loading: true };
 
         case FETCH_CRYPTOCURRENCIES_COMPLETE:
-            return { ...state, loading: false };
-        
+            const data = action.result;
+            return {
+                ...state,
+                data,
+                loading: false
+            };
+
         // Default reducer
         default:
             return state;

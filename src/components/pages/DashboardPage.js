@@ -3,10 +3,7 @@ import CryptoTable from '../controls/CryptoTable';
 
 
 const DashboardPage = () => (
-    <div>
-        Dashboard
-        <CryptoTable />
-    </div>
+    <CryptoTable />
 );
 
 export default DashboardPage;
