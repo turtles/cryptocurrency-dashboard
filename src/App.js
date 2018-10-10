@@ -8,6 +8,8 @@ import {
 import DashboardPage from './components/pages/DashboardPage';
 import CurrencyProfilePage from './components/pages/CurrencyProfilePage';
 
+import './App.css';
+
 const App = () =>(
   <Router>
     <Switch>
