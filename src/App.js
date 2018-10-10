@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {
   BrowserRouter as Router,
   Switch,
@@ -8,18 +8,14 @@ import {
 import DashboardPage from './components/pages/DashboardPage';
 import CurrencyProfilePage from './components/pages/CurrencyProfilePage';
 
-class App extends Component {
-  render() {
-    return (
-      <Router>
-        <Switch>
-          <Route exact path='/' component={DashboardPage} />
-          <Route path='/:name' component={CurrencyProfilePage} />
-        </Switch>
-      </Router>
-    );
-  }
-}
+const App = () =>(
+  <Router>
+    <Switch>
+      <Route exact path='/' component={DashboardPage} />
+      <Route path='/:name' component={CurrencyProfilePage} />
+    </Switch>
+  </Router>
+);
 
 export default App;
  
