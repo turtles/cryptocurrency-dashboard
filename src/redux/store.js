@@ -1,4 +1,22 @@
-import { createStore } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
+import createSagaMiddleware from 'redux-saga';
 
-// No reducers yet. Use a placeholder reducer which simply returns state.
-export default createStore(state => state);
+import rootReducer from './reducers/cryptocurrencies';
+import rootSaga from './sagas';
+
+const sagaMiddleware = createSagaMiddleware();
+
+/*
+    Add flags for Redux Devtools chrome extension when creating the store
+*/
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const store = createStore(
+    rootReducer,
+    composeEnhancers(
+        applyMiddleware(sagaMiddleware)
+    )
+);
+
+sagaMiddleware.run(rootSaga);
+
+export default store;

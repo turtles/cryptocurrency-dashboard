@@ -1,0 +1,6 @@
+export const FETCH_CRYPTOCURRENCIES = 'FETCH_CRYPTOCURRENCIES';
+export const FETCH_CRYPTOCURRENCIES_COMPLETE = 'FETCH_CRYPTOCURRENCIES_COMPLETE';
+
+export const fetchCryptocurrencies = () => ({
+    type: FETCH_CRYPTOCURRENCIES
+});
