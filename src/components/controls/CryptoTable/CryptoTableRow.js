@@ -2,6 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 
+import {
+    formatCurrency,
+    formatPrice,
+    formatMarketCap,
+    formatPercent
+} from '../../../functions/Formatters';
+
 const TableRow = styled.tr`
     text-align: left;
 `;
@@ -32,26 +39,6 @@ const MarketChange = ({children}) => {
 
 const CryptoTableBody = ({data}) => {
     if (!data) return null;
-
-    // TODO: Formatters belong in their own file or module for reuse
-    const formatCurrency = (value) => {
-        // Add commas every three places, starting at the end of the non-decimal places
-        let forStartOffset = value.includes('.') ? -3 : 0;
-        for (let i = value.length - 3 + forStartOffset; i > 0; i -= 3)
-        {
-            value = value.slice(0, i) + ',' + value.slice(i);
-        }
-        return value;
-    }
-    const formatPrice = (price) => (
-        formatCurrency(parseFloat(price).toFixed(2))
-    );
-    const formatMarketCap = (marketCap) => (
-        formatCurrency(parseFloat(marketCap).toFixed(0))
-    );
-    const formatPercent = (percent) => (
-        parseFloat(percent).toFixed(2)+'%'
-    )
 
     return (
         <tbody>
