@@ -12,10 +12,9 @@ const mapStateToProps = ({loading, data}) => ({
 class DashboardPage extends React.Component {
     render() {
         const { loading, data } = this.props;
-
         return (
             <React.Fragment>
-                <Header />
+                <Header>Cryptocurrency Dashboard</Header>
                 <CryptoTable loading={loading} data={data} />
             </React.Fragment>
         );
