@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 
-import { fetchCryptocurrencies } from '../../redux/actions/cryptocurrenciesActions';
+import { fetchCryptocurrencies } from '../../../redux/actions/cryptocurrenciesActions';
 
 import CryptoTableHeader from './CryptoTableHeader';
 import CryptoTableBody from './CryptoTableRow';
