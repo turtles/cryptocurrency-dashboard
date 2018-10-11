@@ -29,7 +29,7 @@ const mapStateToProps = (state, ownProps) => {
         marketCap: data[`market_cap_${currency}`],
         circulatingSupply: data.available_supply,
         volume24h: data[`24h_volume_${currency}`],
-        totalSupply: data.max_supply
+        totalSupply: data.total_supply
     };
 }
 
