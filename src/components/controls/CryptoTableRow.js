@@ -33,6 +33,7 @@ const CryptoTableBody = ({data}) => {
     if (!data) return null;
 
     // TODO: Formatters belong in their own file or module for reuse
+    const formatCurrency = (value) => {
         // Add commas every three places, starting at the end of the non-decimal places
         let forStartOffset = value.includes('.') ? -3 : 0;
         for (let i = value.length - 3 + forStartOffset; i > 0; i -= 3)
