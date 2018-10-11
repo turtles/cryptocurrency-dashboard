@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 
 import CryptoTable from '../controls/CryptoTable';
 import Header from '../controls/Header';
-import cryptocurrencies from '../../redux/reducers/cryptocurrencies';
 
 const mapStateToProps = (state) => ({
     loading: state.cryptocurrencies.loading,

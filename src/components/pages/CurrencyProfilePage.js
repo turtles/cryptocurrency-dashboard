@@ -6,7 +6,6 @@ import {
     formatNumber
 } from '../../functions/Formatters';
 
-import BackButton from '../controls/BackButton';
 import Statistic from '../controls/CryptoProfile/Statistic';
 import Header from '../controls/Header';
 import LoadingSpinner from '../controls/LoadingSpinner';

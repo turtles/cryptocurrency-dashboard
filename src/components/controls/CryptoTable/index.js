@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import CryptoTableHeader from './CryptoTableHeader';
 import CryptoTableBody from './CryptoTableRow';
