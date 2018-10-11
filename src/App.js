@@ -37,14 +37,10 @@ class App extends Component {
       onRegisterRefreshInterval
     } = this.props;
 
-    console.log(intervalId);
-
     if (!intervalId) {
       onFetchCryptocurrencies();
       const intervalId = setInterval(onFetchCryptocurrencies, 60 * 1000);
       onRegisterRefreshInterval(intervalId);
-
-      console.log(intervalId);
     }
   }
   componentWillUnmount() {
