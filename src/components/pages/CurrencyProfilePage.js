@@ -9,20 +9,27 @@ import {
 import BackButton from '../controls/BackButton';
 import Statistic from '../controls/CryptoProfile/Statistic';
 import Header from '../controls/Header';
+import LoadingSpinner from '../controls/LoadingSpinner';
 
 const mapStateToProps = (state, ownProps) => {
-    if (!state.cryptocurrencies.data) return {};
-
     const nameFromParams = ownProps.match.params.name;
+
+    if (state.cryptocurrencies.loading) return {
+        loading: true,
+        name: nameFromParams
+    };
+
     const currency = state.cryptocurrencies.currency.toLowerCase();
 
     const data = state.cryptocurrencies.data.find(o => o.name === nameFromParams);
     if (!data) return {
+        loading: false,
         found: false,
         name: nameFromParams
     }
 
     return {
+        loading: false,
         found: true,
         name: data.name,
         rank: data.rank,
@@ -33,7 +40,16 @@ const mapStateToProps = (state, ownProps) => {
     };
 }
 
-const CurrencyProfilePage = ({found, currency, name, rank, marketCap, circulatingSupply, volume24h, totalSupply}) => {
+const CurrencyProfilePage = (props) => {
+    const {loading, found, name} = props;
+    if (loading) {
+        return (
+            <React.Fragment>
+                <Header backButton>{name}</Header>
+                <LoadingSpinner />
+            </React.Fragment>
+        )
+    }
     if (!found) {
         return (
             <React.Fragment>
@@ -42,6 +58,7 @@ const CurrencyProfilePage = ({found, currency, name, rank, marketCap, circulatin
             </React.Fragment>
         )
     }
+    const {currency, rank, marketCap, circulatingSupply, volume24h, totalSupply} = props;
     return (
         <React.Fragment>
             <Header backButton>{name}</Header>
