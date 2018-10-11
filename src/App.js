@@ -25,7 +25,6 @@ class App extends Component {
     const { onFetchCryptocurrencies } = this.props;
     onFetchCryptocurrencies();
     setInterval(onFetchCryptocurrencies, 60 * 1000);
-    console.log('App will mount');
   }
   render() {
     return (
