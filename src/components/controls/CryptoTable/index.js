@@ -5,6 +5,9 @@ import CryptoTableBody from './CryptoTableRow';
 import LoadingSpinner from '../LoadingSpinner';
 import LastUpdatedLabel from '../LastUpdatedLabel';
 
+/**
+ * Displays a table of cryptocurrency data
+ */
 const CryptoTable = ({loading, lastUpdated, currency, data}) => {
     if (loading) {
         return <LoadingSpinner />

@@ -1,3 +1,7 @@
+/**
+ * Functions for formatting numbers for display
+ */
+
 const currencyData = [
     {name: 'USD', symbol: '$'},
     {name: 'GBP', symbol: '£'},
@@ -9,6 +13,7 @@ const currencyData = [
 const getSymbolForCurrency = (currency) => {
     return currencyData.find(o => o.name === currency).symbol
 }
+
 export const formatCurrency = (value, decimalPlaces = 2, currency = 'USD') => {
     let symbol = getSymbolForCurrency(currency.toUpperCase());
     let formattedNumber = formatNumber(value, decimalPlaces);

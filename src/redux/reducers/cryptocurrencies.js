@@ -7,6 +7,9 @@ import {
 
 const defaultState = {currency: 'USD'};
 
+/**
+ * For actions relating to fetching cryptocurrency data
+ */
 const cryptocurrencies = (state = defaultState, action) => {
     switch (action.type) {
 

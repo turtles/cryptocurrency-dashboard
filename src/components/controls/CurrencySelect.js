@@ -16,6 +16,9 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
+/**
+ * Dropdown box for changing currency
+ */
 const CurrencySelect = ({currency, onChangeCurrency}) => (
     <select defaultValue={currency} onChange={(e) => onChangeCurrency(e.target.value)}>
         <option value="USD">USD</option>

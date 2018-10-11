@@ -41,6 +41,9 @@ const mapStateToProps = (state, ownProps) => {
     };
 }
 
+/**
+ * Displays additional information about a cryptocurrency
+ */
 const CurrencyProfilePage = (props) => {
     const {loading, found, name} = props;
     if (loading) {

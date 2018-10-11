@@ -8,6 +8,9 @@ const TableHeader = styled.tr`
 const HeaderItem = styled.th`
 `;
 
+/**
+ * Presentational component for header items of CryptoTable
+ */
 const CryptoTableHeader = () => (
     <thead>
         <TableHeader>

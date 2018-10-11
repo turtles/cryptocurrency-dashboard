@@ -32,11 +32,13 @@ const mapDispatchToProps = dispatch => {
 
 class App extends Component {
   componentWillMount() {
+    // Fetch cryptocurrency data and refetch on an interval
     const { intervalId,
       onFetchCryptocurrencies,
       onRegisterRefreshInterval
     } = this.props;
 
+    // Prevent multiple setInterval calls
     if (!intervalId) {
       onFetchCryptocurrencies();
       const intervalId = setInterval(onFetchCryptocurrencies, 60 * 1000);
@@ -47,7 +49,6 @@ class App extends Component {
     const { intervalId } = this.props;
     if (intervalId) {
       clearInterval(intervalId);
-      
     }
   }
   render() {

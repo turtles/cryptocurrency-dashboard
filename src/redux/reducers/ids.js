@@ -5,6 +5,9 @@ import {
 
 const defaultState = {};
 
+/**
+ * For tracking the id of instances (such as a setInterval routine)
+ */
 const ids = (state = defaultState, action) => {
     switch (action.type) {
         case REGISTER_REFRESH_INTERVAL:

@@ -11,6 +11,9 @@ const mapStateToProps = (state) => ({
     lastUpdated: state.cryptocurrencies.lastUpdated
 })
 
+/**
+ * Displays an overview of all cryptocurrencies in a list
+ */
 const DashboardPage = ({loading, currency, data, lastUpdated}) => {
     return (
         <React.Fragment>

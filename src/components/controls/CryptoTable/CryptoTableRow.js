@@ -39,12 +39,19 @@ const CryptoTableBody = ({currency, data}) => {
     if (!data) return null;
     
     const currencyLowerCase = currency.toLowerCase();
-
+    
     return (
         <tbody>
             {
                 data.map(row =>
                     (
+                        /** Currency property keys from the API are named with their currency format.
+                            
+                            The data should be formatted by the reducer to remove the currency name from
+                            the key and thus simplify whenever they are accessed.
+
+                            In the interest of time, though, they are accessed directly with selectors here.
+                        */
                         <CryptoTableRow
                             key={row.name}
                             name={row.name}
