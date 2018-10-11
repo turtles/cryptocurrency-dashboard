@@ -1,9 +1,11 @@
 import {
     FETCH_CRYPTOCURRENCIES,
-    FETCH_CRYPTOCURRENCIES_COMPLETE
+    FETCH_CRYPTOCURRENCIES_COMPLETE,
+    
+    CHANGE_CURRENCY
 } from '../actions/cryptocurrenciesActions';
 
-const defaultState = {};
+const defaultState = {currency: 'USD'};
 
 const cryptocurrencies = (state = defaultState, action) => {
     switch (action.type) {
@@ -19,7 +21,13 @@ const cryptocurrencies = (state = defaultState, action) => {
                 loading: false
             };
 
-        // Default reducer
+        case CHANGE_CURRENCY: 
+            return {
+                ...state,
+                currency: action.newCurrency,
+                loading: true
+            };
+            
         default:
             return state;
     }

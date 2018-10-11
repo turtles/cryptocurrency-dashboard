@@ -10,12 +10,13 @@ import BackButton from '../controls/BackButton';
 import Statistic from '../controls/CryptoProfile/Statistic';
 import Header from '../controls/Header';
 
-const mapStateToProps = (state, props) => {
-    if (!state.data) return {};
+const mapStateToProps = (state, ownProps) => {
+    if (!state.cryptocurrencies.data) return {};
 
-    const nameFromParams = props.match.params.name;
+    const nameFromParams = ownProps.match.params.name;
+    const currency = state.cryptocurrencies.currency.toLowerCase();
 
-    const data = state.data.find(o => o.name === nameFromParams);
+    const data = state.cryptocurrencies.data.find(o => o.name === nameFromParams);
     if (!data) return {
         found: false,
         name: nameFromParams
@@ -25,9 +26,9 @@ const mapStateToProps = (state, props) => {
         found: true,
         name: data.name,
         rank: data.rank,
-        marketCap: data.market_cap_usd,
+        marketCap: data[`market_cap_${currency}`],
         circulatingSupply: data.available_supply,
-        volume24h: data['24h_volume_usd'],
+        volume24h: data[`24h_volume_${currency}`],
         totalSupply: data.max_supply
     };
 }
@@ -37,7 +38,7 @@ const CurrencyProfilePage = ({found, name, rank, marketCap, circulatingSupply, v
         return (
             <React.Fragment>
                 <Header backButton>{name}</Header>
-                `Cryptocurrency "{name}" not found`
+                Cryptocurrency "{name}" not found
             </React.Fragment>
         )
     }

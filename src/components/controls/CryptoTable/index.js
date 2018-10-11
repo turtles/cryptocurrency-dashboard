@@ -5,14 +5,14 @@ import CryptoTableBody from './CryptoTableRow';
 import LoadingSpinner from '../LoadingSpinner';
 
 
-const CryptoTable = ({loading, data}) => {
+const CryptoTable = ({loading, currency, data}) => {
     if (loading) {
         return <LoadingSpinner />
     }
     return (
         <table>
             <CryptoTableHeader />
-            <CryptoTableBody data={data} />
+            <CryptoTableBody currency={currency} data={data} />
         </table>
     );
 }

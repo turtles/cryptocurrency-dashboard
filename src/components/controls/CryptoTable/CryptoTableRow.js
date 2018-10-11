@@ -35,8 +35,10 @@ const MarketChange = ({children}) => {
     }
 };
 
-const CryptoTableBody = ({data}) => {
+const CryptoTableBody = ({currency, data}) => {
     if (!data) return null;
+    
+    const currencyLowerCase = currency.toLowerCase();
 
     return (
         <tbody>
@@ -46,8 +48,8 @@ const CryptoTableBody = ({data}) => {
                         <CryptoTableRow
                             key={row.name}
                             name={row.name}
-                            price={formatCurrency(row.price_usd, 2)}
-                            marketCap={formatCurrency(row.market_cap_usd, 0)}
+                            price={formatCurrency(row[`price_${currencyLowerCase}`], 2)}
+                            marketCap={formatCurrency(row[`market_cap_${currencyLowerCase}`], 0)}
                             change24h={formatPercent(row.percent_change_24h)}
                             />
                     )

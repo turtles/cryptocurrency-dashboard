@@ -7,24 +7,52 @@ import {
   Route
 } from 'react-router-dom';
 
+import { registerRefreshInterval, clearRefreshInterval } from './redux/actions/idsActions';
 import { fetchCryptocurrencies } from './redux/actions/cryptocurrenciesActions';
 import DashboardPage from './components/pages/DashboardPage';
 import CurrencyProfilePage from './components/pages/CurrencyProfilePage';
 
 import './App.css';
 
+const mapStateToProps = ({intervalId}) => ({
+  intervalId
+});
+
 const mapDispatchToProps = dispatch => {
 	return {
-        onFetchCryptocurrencies:
-            ()=>dispatch(fetchCryptocurrencies())
-    }
+    onRegisterRefreshInterval: (intervalId) => (
+      registerRefreshInterval(intervalId)
+    ),
+    onClearRefreshInterval:
+      ()=>dispatch(clearRefreshInterval),
+    onFetchCryptocurrencies:
+      ()=>dispatch(fetchCryptocurrencies())
+  }
 }
 
 class App extends Component {
   componentWillMount() {
-    const { onFetchCryptocurrencies } = this.props;
-    onFetchCryptocurrencies();
-    setInterval(onFetchCryptocurrencies, 60 * 1000);
+    const { intervalId,
+      onFetchCryptocurrencies,
+      onRegisterRefreshInterval
+    } = this.props;
+
+    console.log(intervalId);
+
+    if (!intervalId) {
+      onFetchCryptocurrencies();
+      const intervalId = setInterval(onFetchCryptocurrencies, 60 * 1000);
+      onRegisterRefreshInterval(intervalId);
+
+      console.log(intervalId);
+    }
+  }
+  componentWillUnmount() {
+    const { intervalId } = this.props;
+    if (intervalId) {
+      clearInterval(intervalId);
+      
+    }
   }
   render() {
     return (
@@ -38,5 +66,5 @@ class App extends Component {
   }
 }
 
-export default connect(null, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);
  
