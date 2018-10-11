@@ -1,11 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 import {
     formatCurrency,
-    formatPrice,
-    formatMarketCap,
     formatPercent
 } from '../../../functions/Formatters';
 
@@ -48,8 +46,8 @@ const CryptoTableBody = ({data}) => {
                         <CryptoTableRow
                             key={row.name}
                             name={row.name}
-                            price={formatPrice(row.price_usd)}
-                            marketCap={formatMarketCap(row.market_cap_usd)}
+                            price={formatCurrency(row.price_usd, 2)}
+                            marketCap={formatCurrency(row.market_cap_usd, 0)}
                             change24h={formatPercent(row.percent_change_24h)}
                             />
                     )
