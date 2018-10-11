@@ -1,9 +1,12 @@
 import React from 'react';
 import CryptoTable from '../controls/CryptoTable';
-
+import Header from '../controls/Header';
 
 const DashboardPage = () => (
-    <CryptoTable />
+    <React.Fragment>
+        <Header />
+        <CryptoTable />
+    </React.Fragment>
 );
 
 export default DashboardPage;
