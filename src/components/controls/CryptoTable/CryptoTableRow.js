@@ -1,5 +1,6 @@
 import React from 'react';
-import styled, {css} from 'styled-components';
+import { Link } from 'react-router-dom';
+import styled, { css } from 'styled-components';
 
 const TableRow = styled.tr`
     text-align: left;
@@ -73,7 +74,9 @@ const CryptoTableBody = ({data}) => {
 
 const CryptoTableRow = ({name, price, marketCap, change24h}) => (
     <TableRow>
-        <RowItem>{name}</RowItem>
+        <RowItem>
+            <Link to={`/${name}`}>{name}</Link>
+        </RowItem>
         <RowItem>{price}</RowItem>
         <RowItem>{marketCap}</RowItem>
         <RowItem>
