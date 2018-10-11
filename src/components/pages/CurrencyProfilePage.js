@@ -10,6 +10,7 @@ import BackButton from '../controls/BackButton';
 import Statistic from '../controls/CryptoProfile/Statistic';
 import Header from '../controls/Header';
 import LoadingSpinner from '../controls/LoadingSpinner';
+import LastUpdatedLabel from '../controls/LastUpdatedLabel';
 
 const mapStateToProps = (state, ownProps) => {
     const nameFromParams = ownProps.match.params.name;
@@ -36,7 +37,8 @@ const mapStateToProps = (state, ownProps) => {
         marketCap: data[`market_cap_${currency}`],
         circulatingSupply: data.available_supply,
         volume24h: data[`24h_volume_${currency}`],
-        totalSupply: data.total_supply
+        totalSupply: data.total_supply,
+        lastUpdated: state.cryptocurrencies.lastUpdated
     };
 }
 
@@ -58,10 +60,11 @@ const CurrencyProfilePage = (props) => {
             </React.Fragment>
         )
     }
-    const {currency, rank, marketCap, circulatingSupply, volume24h, totalSupply} = props;
+    const {currency, rank, marketCap, circulatingSupply, volume24h, totalSupply, lastUpdated} = props;
     return (
         <React.Fragment>
             <Header backButton>{name}</Header>
+            <LastUpdatedLabel time={lastUpdated} />
             <div>
                 <Statistic name='Rank'>{rank}</Statistic>
                 <Statistic name='Market Cap'>{formatCurrency(marketCap, 0, currency)}</Statistic>

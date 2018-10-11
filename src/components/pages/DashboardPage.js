@@ -9,18 +9,16 @@ const mapStateToProps = (state) => ({
     loading: state.cryptocurrencies.loading,
     currency: state.cryptocurrencies.currency,
     data: state.cryptocurrencies.data,
+    lastUpdated: state.cryptocurrencies.lastUpdated
 })
 
-class DashboardPage extends React.Component {
-    render() {
-        const { loading, currency, data } = this.props;
-        return (
-            <React.Fragment>
-                <Header>Cryptocurrency Dashboard</Header>
-                <CryptoTable loading={loading} currency={currency} data={data} />
-            </React.Fragment>
-        );
-    }
+const DashboardPage = ({loading, currency, data, lastUpdated}) => {
+    return (
+        <React.Fragment>
+            <Header>Cryptocurrency Dashboard</Header>
+            <CryptoTable loading={loading} lastUpdated={lastUpdated} currency={currency} data={data} />
+        </React.Fragment>
+    );
 }
 
 export default connect(mapStateToProps)(DashboardPage);

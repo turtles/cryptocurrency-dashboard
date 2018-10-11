@@ -3,17 +3,20 @@ import React, { Component } from 'react';
 import CryptoTableHeader from './CryptoTableHeader';
 import CryptoTableBody from './CryptoTableRow';
 import LoadingSpinner from '../LoadingSpinner';
+import LastUpdatedLabel from '../LastUpdatedLabel';
 
-
-const CryptoTable = ({loading, currency, data}) => {
+const CryptoTable = ({loading, lastUpdated, currency, data}) => {
     if (loading) {
         return <LoadingSpinner />
     }
     return (
-        <table>
-            <CryptoTableHeader />
-            <CryptoTableBody currency={currency} data={data} />
-        </table>
+        <React.Fragment>
+            <LastUpdatedLabel time={lastUpdated}/>
+            <table>
+                <CryptoTableHeader />
+                <CryptoTableBody currency={currency} data={data} />
+            </table>
+        </React.Fragment>
     );
 }
 

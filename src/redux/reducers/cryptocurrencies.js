@@ -15,9 +15,11 @@ const cryptocurrencies = (state = defaultState, action) => {
 
         case FETCH_CRYPTOCURRENCIES_COMPLETE:
             const data = action.result;
+            const {lastUpdated} = action;
             return {
                 ...state,
                 data,
+                lastUpdated,
                 loading: false
             };
 

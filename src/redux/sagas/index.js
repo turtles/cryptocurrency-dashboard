@@ -18,9 +18,11 @@ function* fetchCryptocurrencies() {
         .then(
             // Reduce to data
             response => response.data
-        )
+        );
+    
+    const lastUpdated = new Date();
 
-    yield put({ type: FETCH_CRYPTOCURRENCIES_COMPLETE, result });
+    yield put({ type: FETCH_CRYPTOCURRENCIES_COMPLETE, result, lastUpdated });
 }
 
 function* fetchCryptoCurrencyWatcher() {
