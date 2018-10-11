@@ -1,4 +1,11 @@
 export const formatCurrency = (value, decimalPlaces = 2) => {
+    // TODO: Add currency symbol
+    return formatNumber(value, decimalPlaces);
+}
+
+export const formatNumber = (value, decimalPlaces = 0) => {
+    if (!value) return null;
+    
     value = parseFloat(value).toFixed(decimalPlaces);
 
     // Add commas every three places, starting at the end of the non-decimal places
