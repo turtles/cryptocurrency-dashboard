@@ -1,40 +1,20 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import styled from 'styled-components';
-
-import { fetchCryptocurrencies } from '../../../redux/actions/cryptocurrenciesActions';
 
 import CryptoTableHeader from './CryptoTableHeader';
 import CryptoTableBody from './CryptoTableRow';
+import LoadingSpinner from '../LoadingSpinner';
 
-const mapStateToProps = state => ({
-    data: state.data
-})
 
-const mapDispatchToProps = dispatch => {
-	return {
-        onFetchCryptocurrencies:
-            ()=>dispatch(fetchCryptocurrencies())
+const CryptoTable = ({loading, data}) => {
+    if (loading) {
+        return <LoadingSpinner />
     }
-}
-
-let CryptoTable = ({data, onFetchCryptocurrencies}) => {
     return (
-        <React.Fragment>
-            <button onClick={()=>onFetchCryptocurrencies()}>
-                fetch
-            </button>
-            <br/>
-            <table>
-                <CryptoTableHeader />
-                <CryptoTableBody data={data} />
-            </table>
-        </React.Fragment>
+        <table>
+            <CryptoTableHeader />
+            <CryptoTableBody data={data} />
+        </table>
     );
 }
-
-CryptoTable = connect(
-    mapStateToProps, mapDispatchToProps
-)(CryptoTable);
 
 export default CryptoTable;
