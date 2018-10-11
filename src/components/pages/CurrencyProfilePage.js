@@ -33,7 +33,7 @@ const mapStateToProps = (state, ownProps) => {
     };
 }
 
-const CurrencyProfilePage = ({found, name, rank, marketCap, circulatingSupply, volume24h, totalSupply}) => {
+const CurrencyProfilePage = ({found, currency, name, rank, marketCap, circulatingSupply, volume24h, totalSupply}) => {
     if (!found) {
         return (
             <React.Fragment>
@@ -47,7 +47,7 @@ const CurrencyProfilePage = ({found, name, rank, marketCap, circulatingSupply, v
             <Header backButton>{name}</Header>
             <div>
                 <Statistic name='Rank'>{rank}</Statistic>
-                <Statistic name='Market Cap'>{formatCurrency(marketCap, 0)}</Statistic>
+                <Statistic name='Market Cap'>{formatCurrency(marketCap, 0, currency)}</Statistic>
                 <Statistic name='Circulating Supply'>{formatNumber(circulatingSupply, 0)}</Statistic>
                 <Statistic name='24H Volume'>{formatNumber(volume24h, 0)}</Statistic>
                 <Statistic name='Total Supply'>{formatNumber(totalSupply, 0)}</Statistic>

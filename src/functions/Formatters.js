@@ -1,6 +1,18 @@
-export const formatCurrency = (value, decimalPlaces = 2) => {
-    // TODO: Add currency symbol
-    return formatNumber(value, decimalPlaces);
+const currencyData = [
+    {name: 'USD', symbol: '$'},
+    {name: 'GBP', symbol: '£'},
+    {name: 'EUR', symbol: '€'},
+    {name: 'JPY', symbol: '¥'},
+    {name: 'KRW', symbol: '₩'},
+]
+
+const getSymbolForCurrency = (currency) => {
+    return currencyData.find(o => o.name === currency).symbol
+}
+export const formatCurrency = (value, decimalPlaces = 2, currency = 'USD') => {
+    let symbol = getSymbolForCurrency(currency.toUpperCase());
+    let formattedNumber = formatNumber(value, decimalPlaces);
+    return `${symbol} ${formattedNumber}`;
 }
 
 export const formatNumber = (value, decimalPlaces = 0) => {

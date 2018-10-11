@@ -48,8 +48,8 @@ const CryptoTableBody = ({currency, data}) => {
                         <CryptoTableRow
                             key={row.name}
                             name={row.name}
-                            price={formatCurrency(row[`price_${currencyLowerCase}`], 2)}
-                            marketCap={formatCurrency(row[`market_cap_${currencyLowerCase}`], 0)}
+                            price={formatCurrency(row[`price_${currencyLowerCase}`], 2, currency)}
+                            marketCap={formatCurrency(row[`market_cap_${currencyLowerCase}`], 0, currency)}
                             change24h={formatPercent(row.percent_change_24h)}
                             />
                     )
