@@ -6,7 +6,7 @@ import LoadingSpinner from '../LoadingSpinner';
 import LastUpdatedLabel from '../LastUpdatedLabel';
 
 
-import {Table} from '../../components/Table/';
+import Table from '../../components/Table/';
 
 /**
  * Displays a table of cryptocurrency data

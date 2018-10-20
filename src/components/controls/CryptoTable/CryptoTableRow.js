@@ -1,15 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import {Tr} from '../../components/Table';
 
 import {
     formatCurrency,
     formatPercent
 } from '../../../functions/Formatters';
 
-const RowItem = styled.th`
-`;
 const PositiveMarketChange = styled.span`
     color: lightgreen
 `;
@@ -65,16 +62,16 @@ const CryptoTableBody = ({currency, data}) => {
 };
 
 const CryptoTableRow = ({name, price, marketCap, change24h}) => (
-    <Tr>
-        <RowItem>
+    <tr>
+        <th>
             <Link to={`/${name}`}>{name}</Link>
-        </RowItem>
-        <RowItem>{price}</RowItem>
-        <RowItem>{marketCap}</RowItem>
-        <RowItem>
+        </th>
+        <th>{price}</th>
+        <th>{marketCap}</th>
+        <th>
             <MarketChange>{change24h}</MarketChange>
-        </RowItem>
-    </Tr>
+        </th>
+    </tr>
 );
 
 export default CryptoTableBody;

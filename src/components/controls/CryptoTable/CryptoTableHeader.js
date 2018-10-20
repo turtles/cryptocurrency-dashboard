@@ -1,32 +1,25 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const TableHeader = styled.tr`
-    text-transform: uppercase;
-    font-weight: bold;
-`;
-const HeaderItem = styled.th`
-`;
-
 /**
  * Presentational component for header items of CryptoTable
  */
 const CryptoTableHeader = () => (
     <thead>
-        <TableHeader>
-            <HeaderItem>
+        <tr>
+            <th>
                 Cryptocurrency
-            </HeaderItem>
-            <HeaderItem>
+            </th>
+            <th>
                 Price
-            </HeaderItem>
-            <HeaderItem>
+            </th>
+            <th>
                 Market Cap
-            </HeaderItem>
-            <HeaderItem>
+            </th>
+            <th>
                 24h Change
-            </HeaderItem>
-        </TableHeader>
+            </th>
+        </tr>
     </thead>
 );
 
