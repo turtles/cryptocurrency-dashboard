@@ -6,27 +6,26 @@ import CurrencySelect from '../CurrencySelect';
 
 const HeaderContainer = styled.div`
     display: flex;
+    div {
+        padding: 0 2em;
+    }
 `;
-
-const HeaderContainerItem = styled.div`
-`;
-
 
 const Header = ({backButton, children}) => (
     <HeaderContainer>
-        <HeaderContainerItem>
+        <div>
             {
                 backButton ? 
                     <BackButton />
                     : null
             }
-        </HeaderContainerItem>
-        <HeaderContainerItem>
+        </div>
+        <div>
             <h1>{children}</h1>
-        </HeaderContainerItem>
-        <HeaderContainerItem>
+        </div>
+        <div>
             <CurrencySelect />
-        </HeaderContainerItem>
+        </div>
     </HeaderContainer>
 )
 

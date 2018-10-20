@@ -12,7 +12,8 @@ import { fetchCryptocurrencies } from './redux/actions/cryptocurrenciesActions';
 import DashboardPage from './components/pages/DashboardPage';
 import CurrencyProfilePage from './components/pages/CurrencyProfilePage';
 
-import './App.css';
+// import './App.css';
+import GlobalStyle from './GlobalStyle';
 
 const mapStateToProps = ({intervalId}) => ({
   intervalId
@@ -53,12 +54,15 @@ class App extends Component {
   }
   render() {
     return (
-      <Router>
-        <Switch>
-          <Route exact path='/' component={DashboardPage} />
-          <Route path='/:name' component={CurrencyProfilePage} />
-        </Switch>
-      </Router>
+      <React.Fragment>
+        <GlobalStyle />
+        <Router>
+          <Switch>
+            <Route exact path='/' component={DashboardPage} />
+            <Route path='/:name' component={CurrencyProfilePage} />
+          </Switch>
+        </Router>
+      </React.Fragment>
     )
   }
 }
