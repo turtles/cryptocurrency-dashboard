@@ -1,34 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import styled from 'styled-components';
+
+import MarketChange from '../../components/MarketChange';
 
 import {
     formatCurrency,
     formatPercent
 } from '../../../functions/Formatters';
 
-const PositiveMarketChange = styled.span`
-    color: lightgreen
-`;
-const NegativeMarketChange = styled.span`
-    color: red
-`;
-const NeutralMarketChange = styled.span`
-    color: steelblue
-`;
-
-const MarketChange = ({children}) => {
-    const value = parseFloat(children);
-    if (value < 0) {
-        return (<NegativeMarketChange>{children} ▼</NegativeMarketChange>);
-    }
-    else if (value === 0) {
-        return (<NeutralMarketChange>{children}</NeutralMarketChange>);
-    }
-    else {
-        return (<PositiveMarketChange>{children} ▲</PositiveMarketChange>);
-    }
-};
 
 const CryptoTableBody = ({currency, data}) => {
     if (!data) return null;
@@ -69,7 +48,7 @@ const CryptoTableRow = ({name, price, marketCap, change24h}) => (
         <th>{price}</th>
         <th>{marketCap}</th>
         <th>
-            <MarketChange>{change24h}</MarketChange>
+            <MarketChange value={change24h} />
         </th>
     </tr>
 );

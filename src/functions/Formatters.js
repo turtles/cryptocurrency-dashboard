@@ -35,5 +35,5 @@ export const formatNumber = (value, decimalPlaces = 0) => {
 }
 
 export const formatPercent = (percent) => (
-    parseFloat(percent).toFixed(2)+'%'
+    parseFloat(percent).toFixed(2)
 )
