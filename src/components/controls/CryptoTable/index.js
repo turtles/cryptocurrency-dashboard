@@ -5,6 +5,9 @@ import CryptoTableBody from './CryptoTableRow';
 import LoadingSpinner from '../LoadingSpinner';
 import LastUpdatedLabel from '../LastUpdatedLabel';
 
+
+import {Table} from '../../components/Table/';
+
 /**
  * Displays a table of cryptocurrency data
  */
@@ -15,10 +18,10 @@ const CryptoTable = ({loading, lastUpdated, currency, data}) => {
     return (
         <React.Fragment>
             <LastUpdatedLabel time={lastUpdated}/>
-            <table>
+            <Table>
                 <CryptoTableHeader />
                 <CryptoTableBody currency={currency} data={data} />
-            </table>
+            </Table>
         </React.Fragment>
     );
 }
