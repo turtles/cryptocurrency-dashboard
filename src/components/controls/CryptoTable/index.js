@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from 'styled-components';
 
 import CryptoTableHeader from './CryptoTableHeader';
 import CryptoTableBody from './CryptoTableRow';
