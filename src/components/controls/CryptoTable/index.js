@@ -1,10 +1,9 @@
 import React from 'react';
+import styled from 'styled-components';
 
 import CryptoTableHeader from './CryptoTableHeader';
 import CryptoTableBody from './CryptoTableRow';
 import LoadingSpinner from '../LoadingSpinner';
-import LastUpdatedLabel from '../LastUpdatedLabel';
-
 
 import Table from '../../components/Table/';
 
@@ -16,13 +15,10 @@ const CryptoTable = ({loading, lastUpdated, currency, data}) => {
         return <LoadingSpinner />
     }
     return (
-        <React.Fragment>
-            <LastUpdatedLabel time={lastUpdated}/>
-            <Table>
-                <CryptoTableHeader />
-                <CryptoTableBody currency={currency} data={data} />
-            </Table>
-        </React.Fragment>
+        <Table>
+            <CryptoTableHeader />
+            <CryptoTableBody currency={currency} data={data} />
+        </Table>
     );
 }
 

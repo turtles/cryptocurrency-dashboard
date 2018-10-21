@@ -10,10 +10,11 @@ import {
 import StatisticList from '../components/Statistics/StatisticList';
 import Statistic from '../components/Statistics/Statistic';
 import Rank from '../components/Rank';
+import LastUpdated from '../components/LastUpdated';
+import PageContentWrapper from '../components/PageContentWrapper';
 
 import Header from '../components/Header';
 import LoadingSpinner from '../controls/LoadingSpinner';
-import LastUpdatedLabel from '../controls/LastUpdatedLabel';
 
 const mapStateToProps = (state, ownProps) => {
     const nameFromParams = ownProps.match.params.name;
@@ -67,24 +68,27 @@ const CurrencyProfilePage = (props) => {
         )
     }
     const {currency, rank, marketCap, circulatingSupply, volume24h, totalSupply, lastUpdated} = props;
+    console.log(lastUpdated);
     return (
-        <React.Fragment>
+        <div>
             <Header backButton>{name}</Header>
-            <LastUpdatedLabel time={lastUpdated} />
-            <GridLayout>
-                <LeftColumn>
-                    <Rank value={rank}/>
-                </LeftColumn>
-                <RightColumn>
-                    <StatisticList>
-                        <Statistic name='Market Cap'>{formatCurrency(marketCap, 0, currency)}</Statistic>
-                        <Statistic name='Circulating Supply'>{formatNumber(circulatingSupply, 0)}</Statistic>
-                        <Statistic name='24H Volume'>{formatNumber(volume24h, 0)}</Statistic>
-                        <Statistic name='Total Supply'>{formatNumber(totalSupply, 0)}</Statistic>
-                    </StatisticList>
-                </RightColumn>
-            </GridLayout>
-        </React.Fragment>
+            <LastUpdated>{`${lastUpdated}`}</LastUpdated>
+            <PageContentWrapper>
+                <GridLayout>
+                    <LeftColumn>
+                        <Rank value={rank}/>
+                    </LeftColumn>
+                    <RightColumn>
+                        <StatisticList>
+                            <Statistic name='Market Cap'>{formatCurrency(marketCap, 0, currency)}</Statistic>
+                            <Statistic name='Circulating Supply'>{formatNumber(circulatingSupply, 0)}</Statistic>
+                            <Statistic name='24H Volume'>{formatNumber(volume24h, 0)}</Statistic>
+                            <Statistic name='Total Supply'>{formatNumber(totalSupply, 0)}</Statistic>
+                        </StatisticList>
+                    </RightColumn>
+                </GridLayout>
+            </PageContentWrapper>
+        </div>
     )
 }
 

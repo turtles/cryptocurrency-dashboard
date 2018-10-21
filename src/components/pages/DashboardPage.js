@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 
 import CryptoTable from '../controls/CryptoTable';
 import Header from '../components/Header';
+import LastUpdated from '../components/LastUpdated';
+import PageContentWrapper from '../components/PageContentWrapper';
 
 const mapStateToProps = (state) => ({
     loading: state.cryptocurrencies.loading,
@@ -18,7 +20,10 @@ const DashboardPage = ({loading, currency, data, lastUpdated}) => {
     return (
         <React.Fragment>
             <Header>Cryptocurrency Dashboard</Header>
-            <CryptoTable loading={loading} lastUpdated={lastUpdated} currency={currency} data={data} />
+            <LastUpdated>{`${lastUpdated}`}</LastUpdated>
+            <PageContentWrapper>
+                <CryptoTable loading={loading} currency={currency} data={data} />
+            </PageContentWrapper>
         </React.Fragment>
     );
 }
