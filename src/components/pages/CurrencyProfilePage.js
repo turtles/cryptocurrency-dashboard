@@ -93,19 +93,22 @@ const CurrencyProfilePage = (props) => {
 }
 
 const GridLayout = styled.div`
+    margin: auto;
     margin-top: 1em;
+    display: flex;
+    justify-content: center;
 `;
 
 const LeftColumn = styled.div`
-    width:25%;
-    float: left;
+    width:20%;
+    max-width: 200px;
+    min-width: 150px;
     text-align: center;
-    margin-top:5em;
+    margin-top: 5em;
 `;
 
 const RightColumn = styled.div`
-    width:75%;
-    float: right;
+    width:60%;
 `;
 
 export default connect(mapStateToProps)(CurrencyProfilePage);
