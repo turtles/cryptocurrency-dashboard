@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import CryptoTable from '../controls/CryptoTable';
-import Header from '../controls/Header';
+import Header from '../components/Header';
 
 const mapStateToProps = (state) => ({
     loading: state.cryptocurrencies.loading,

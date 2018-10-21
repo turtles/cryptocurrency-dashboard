@@ -1,13 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import styled from 'styled-components';
 
 import {
     formatCurrency,
     formatNumber
 } from '../../functions/Formatters';
 
-import Statistic from '../controls/CryptoProfile/Statistic';
-import Header from '../controls/Header';
+import StatisticList from '../components/Statistics/StatisticList';
+import Statistic from '../components/Statistics/Statistic';
+import Rank from '../components/Rank';
+
+import Header from '../components/Header';
 import LoadingSpinner from '../controls/LoadingSpinner';
 import LastUpdatedLabel from '../controls/LastUpdatedLabel';
 
@@ -67,15 +71,37 @@ const CurrencyProfilePage = (props) => {
         <React.Fragment>
             <Header backButton>{name}</Header>
             <LastUpdatedLabel time={lastUpdated} />
-            <div>
-                <Statistic name='Rank'>{rank}</Statistic>
-                <Statistic name='Market Cap'>{formatCurrency(marketCap, 0, currency)}</Statistic>
-                <Statistic name='Circulating Supply'>{formatNumber(circulatingSupply, 0)}</Statistic>
-                <Statistic name='24H Volume'>{formatNumber(volume24h, 0)}</Statistic>
-                <Statistic name='Total Supply'>{formatNumber(totalSupply, 0)}</Statistic>
-            </div>
+            <GridLayout>
+                <LeftColumn>
+                    <Rank value={rank}/>
+                </LeftColumn>
+                <RightColumn>
+                    <StatisticList>
+                        <Statistic name='Market Cap'>{formatCurrency(marketCap, 0, currency)}</Statistic>
+                        <Statistic name='Circulating Supply'>{formatNumber(circulatingSupply, 0)}</Statistic>
+                        <Statistic name='24H Volume'>{formatNumber(volume24h, 0)}</Statistic>
+                        <Statistic name='Total Supply'>{formatNumber(totalSupply, 0)}</Statistic>
+                    </StatisticList>
+                </RightColumn>
+            </GridLayout>
         </React.Fragment>
     )
 }
+
+const GridLayout = styled.div`
+    margin-top: 1em;
+`;
+
+const LeftColumn = styled.div`
+    width:25%;
+    float: left;
+    text-align: center;
+    margin-top:5em;
+`;
+
+const RightColumn = styled.div`
+    width:75%;
+    float: right;
+`;
 
 export default connect(mapStateToProps)(CurrencyProfilePage);
