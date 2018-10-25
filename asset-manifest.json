@@ -1,12 +1,12 @@
 {
-  "main.js": "/static/js/main.3f0e78e3.chunk.js",
-  "main.js.map": "/static/js/main.3f0e78e3.chunk.js.map",
-  "static/js/1.b47d44a4.chunk.js": "/static/js/1.b47d44a4.chunk.js",
-  "static/js/1.b47d44a4.chunk.js.map": "/static/js/1.b47d44a4.chunk.js.map",
-  "runtime~main.js": "/static/js/runtime~main.229c360f.js",
-  "runtime~main.js.map": "/static/js/runtime~main.229c360f.js.map",
-  "static/media/puff.svg": "/static/media/puff.872883b6.svg",
-  "index.html": "/index.html",
-  "precache-manifest.43f91daa8daf1cd960260307e718ab72.js": "/precache-manifest.43f91daa8daf1cd960260307e718ab72.js",
-  "service-worker.js": "/service-worker.js"
+  "main.js": "/cryptocurrency-dashboard/static/js/main.0bb119f8.chunk.js",
+  "main.js.map": "/cryptocurrency-dashboard/static/js/main.0bb119f8.chunk.js.map",
+  "static/js/1.12fe7aa0.chunk.js": "/cryptocurrency-dashboard/static/js/1.12fe7aa0.chunk.js",
+  "static/js/1.12fe7aa0.chunk.js.map": "/cryptocurrency-dashboard/static/js/1.12fe7aa0.chunk.js.map",
+  "runtime~main.js": "/cryptocurrency-dashboard/static/js/runtime~main.c9dd99a3.js",
+  "runtime~main.js.map": "/cryptocurrency-dashboard/static/js/runtime~main.c9dd99a3.js.map",
+  "static/media/puff.svg": "/cryptocurrency-dashboard/static/media/puff.872883b6.svg",
+  "index.html": "/cryptocurrency-dashboard/index.html",
+  "precache-manifest.01c11b5c47a7ed5f4e096c2379dd54ff.js": "/cryptocurrency-dashboard/precache-manifest.01c11b5c47a7ed5f4e096c2379dd54ff.js",
+  "service-worker.js": "/cryptocurrency-dashboard/service-worker.js"
 }
