@@ -56,7 +56,7 @@ class App extends Component {
     return (
       <React.Fragment>
         <GlobalStyle />
-        <Router>
+        <Router basename={process.env.PUBLIC_URL}>
           <Switch>
             <Route exact path='/' component={DashboardPage} />
             <Route path='/:name' component={CurrencyProfilePage} />
